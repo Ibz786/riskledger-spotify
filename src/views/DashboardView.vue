@@ -4,6 +4,7 @@
     import { useAuthStore } from '@/stores/auth';
     import ApiService from '@/services/ApiService.js';
     import Track from '@/components/Track.vue';
+    import Sidebar from '@/components/Sidebar.vue';
     
     const heading = "Recently played tracks";
     const tracksData = ref({});
@@ -22,6 +23,7 @@
 
 <template>
     <div class="dashboard">
+        <Sidebar />
         <h1 class="green">{{ heading }}</h1>
 
         <ul class="tracks-container">
