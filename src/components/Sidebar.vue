@@ -10,6 +10,14 @@ import { ref } from 'vue';
         artists.value = tracksStore.getArtists;
     }
 
+    function filterArtists(artistId) {
+        tracksStore.selectArtist(artistId);
+    }
+
+    function clearFilter() {
+        tracksStore.selectArtist();
+    }
+
     getArtists();
 </script>
 
@@ -17,8 +25,11 @@ import { ref } from 'vue';
     <aside>
 		<h2 class="green">Recently Played Artists</h2>
         <ul>
-            <li v-for="artist in artists" :key="artist.id">{{artist.name}}</li>
+            <li v-for="artist in artists" :key="artist.id">
+                <a @click="filterArtists(artist.id)">{{artist.name}}</a>
+            </li>
         </ul>
+        <button type="button" @click="clearFilter">Clear</button>
 	</aside>
 </template>
 
