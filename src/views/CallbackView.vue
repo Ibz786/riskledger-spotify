@@ -11,11 +11,15 @@
     onMounted(() => {
         routeHash.value = route.hash;
         
+        loginCallback();
+    });
+
+    async function loginCallback() {
         if(routeHash.value.substring(1).split('&')[0].includes("access_token")) {
-            authStore.login(routeHash.value.substring(1).split('&')[0].split("access_token=")[1], routeHash.value.substring(1).split('&')[3].split("state=")[1]);
+            await authStore.login(routeHash.value.substring(1).split('&')[0].split("access_token=")[1], routeHash.value.substring(1).split('&')[3].split("state=")[1]);
             router.push({name: 'dashboard'});
         }
-    });
+    }
 </script>
 
 <template>

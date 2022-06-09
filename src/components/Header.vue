@@ -19,7 +19,7 @@
 		<div class="wrapper">
 			<nav>
 				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/about">About</RouterLink>
+				<RouterLink to="/dashboard" v-if="authStore.spotifyUser.isLoggedIn">Dashboard</RouterLink>
                 <a v-if="!authStore.spotifyUser.isLoggedIn" :href="url">Login</a>
                 <a v-if="authStore.spotifyUser.isLoggedIn" @click="logout">Logout</a>
 			</nav>

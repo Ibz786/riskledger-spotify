@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
+import { useTracksStore } from '@/stores/tracks';
 import ApiService from '@/services/ApiService.js';
 import UtilsService from '@/services/UtilsService';
 
 export const useAuthStore = defineStore('auth', () => {
+
+    const trackStore = useTracksStore();
 
     const spotifyParams = reactive({
         accessToken: "",
@@ -18,12 +21,12 @@ export const useAuthStore = defineStore('auth', () => {
         displayName: ""
     });
 
-    function login(token, state) {
+    async function login(token, state) {
         spotifyParams.accessToken = token;
         spotifyParams.state = state;
         localStorage.setItem("token", token);
 
-        ApiService.getProfile(spotifyParams.accessToken).then(profile => {
+        await ApiService.getProfile(spotifyParams.accessToken).then(profile => {
             spotifyUser.isLoggedIn = true;
             spotifyUser.displayName = profile.display_name;
             localStorage.setItem("user", profile.display_name);
@@ -34,6 +37,7 @@ export const useAuthStore = defineStore('auth', () => {
         spotifyParams.accessToken = "";
         spotifyUser.isLoggedIn = false;
         spotifyUser.displayName = "";
+        trackStore.clearTracksDate();
         localStorage.clear();
     }
 

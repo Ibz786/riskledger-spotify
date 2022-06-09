@@ -55,7 +55,12 @@ export const useTracksStore = defineStore('tracks', () => {
 
     }
 
+    function clearTracksDate() {
+        userRecentlyPlayedTracks.value = [];
+        selectedArtist.value = [];
+    }
+
     selectedArtist.value = localStorage.getItem('selectedArtist') ? localStorage.getItem('selectedArtist') : "";
 
-    return { userRecentlyPlayedTracks, selectedArtist, getArtists, getTracks, setPlayedTracks, selectArtist };
+    return { userRecentlyPlayedTracks, selectedArtist, getArtists, getTracks, setPlayedTracks, selectArtist, clearTracksDate };
 });
