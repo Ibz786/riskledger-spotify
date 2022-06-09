@@ -45,4 +45,5 @@ The user's token was stored in the Localstorage. Whilst I had logic implemented 
 - I did not have time to style the UI the way I wanted. I would have loved to have included a nice UI as part of my work and give the whole feature a more of intuitive Dashboard feel, whilst as the same time, complimenting the design with a theme similar to that of Spotify itself
 - I wasn't able to do the bonus part, which I would have loved to acheive
 - As mentioned previously I would have loved to have included good testing for all the components, views etc. that I created
-- To improve the this mini web-app, I feel it would have been better to have also created a back-end in Node.js / Express.js to handle the Token and Authentication
+- To improve the this mini web-app, I feel it would have been better to have also created a back-end in Node.js / Express.js to much better handle the Token and Authentication and make it more secure
+    - This is based on another security issue to consider is that the Client ID from the Spotify API. This is currently exposed and anyone can view the code and see it. Stricly speaking this should have placed in a `.env` file for development purposes and then in production, this should be hosted against the production server's environment variables, which then the server can refer to
