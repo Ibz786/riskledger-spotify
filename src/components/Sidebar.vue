@@ -24,12 +24,12 @@ import { ref } from 'vue';
 <template>
     <aside>
 		<h2 class="green">Recently Played Artists</h2>
-        <ul>
+        <ul class="artist-list">
             <li v-for="artist in artists" :key="artist.id">
                 <a @click="filterArtists(artist.id)">{{artist.name}}</a>
             </li>
         </ul>
-        <button type="button" @click="clearFilter">Clear</button>
+        <button type="button" class="artist-list-clear" @click="clearFilter">Clear</button>
 	</aside>
 </template>
 

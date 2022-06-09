@@ -17,7 +17,6 @@ html, body {
 
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.6) 0, #121212 100%) no-repeat;
-  height: 100vh;
   color: white;
 }
 
@@ -76,6 +75,31 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+ul.artist-list {
+  list-style: none;
+  padding: 0;
+}
+ul.artist-list li {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+ul.artist-list li a {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+.artist-list-clear {
+  margin-top: 10px;
+  background: none;
+  color: white;
+  border-radius: 12px;
+  padding: 5px 20px;
+  margin-left: 5px;
+  cursor: pointer;
+  border: 1px solid white;
 }
 
 .dashboard {
